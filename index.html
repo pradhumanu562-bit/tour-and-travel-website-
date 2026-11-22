@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WanderWise – Explore More. Travel Better. | AI-Powered Tour & Travel</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✈️</text></svg>">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/chatbot.css">
+</head>
+<body>
+
+  <!-- 1. Header & Navigation -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">
+        <i class="fa-solid fa-compass-drafting"></i>
+        <span>Wander<strong>Wise</strong></span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="destinations.html" class="nav-link">Destinations</a>
+        <a href="packages.html" class="nav-link">Packages</a>
+        <a href="planner.html" class="nav-link"><i class="fa-solid fa-wand-magic-sparkles" style="color: var(--accent);"></i> AI Trip Planner</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button class="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Dark/Light Mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <!-- Wishlist Shortcut -->
+        <a href="dashboard.html#wishlist" class="wishlist-nav-btn" aria-label="Wishlist" title="View Wishlist">
+          <i class="fa-solid fa-heart"></i>
+          <span class="wishlist-badge" style="display: none;">0</span>
+        </a>
+
+        <!-- User Authentication Slot -->
+        <div class="nav-auth-slot">
+          <a href="login.html" class="btn btn-secondary btn-sm">Login</a>
+          <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" aria-label="Toggle Navigation Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. Hero Section -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-tag">
+        <i class="fa-solid fa-sparkles"></i> AI-Powered Travel Experience
+      </div>
+      <h1 class="hero-title">Discover Your Next Adventure</h1>
+      <p class="hero-subtitle">
+        Explore the world and create unforgettable memories with intelligent itineraries, hand-crafted packages, and 24/7 AI travel guidance.
+      </p>
+
+      <!-- Destination Search Bar -->
+      <form class="hero-search-box" action="destinations.html" method="GET">
+        <div class="search-field">
+          <i class="fa-solid fa-location-dot"></i>
+          <div class="search-field-content">
+            <label for="heroLocationInput">Where To?</label>
+            <input type="text" id="heroLocationInput" name="q" placeholder="e.g. Manali, Goa, Dubai, Bali..." required>
+          </div>
+        </div>
+
+        <div class="search-field">
+          <i class="fa-regular fa-calendar"></i>
+          <div class="search-field-content">
+            <label for="heroDurationSelect">Duration</label>
+            <select id="heroDurationSelect">
+              <option value="any">Any Duration</option>
+              <option value="weekend">3 - 4 Days</option>
+              <option value="week">5 - 7 Days</option>
+              <option value="extended">8+ Days</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="search-field">
+          <i class="fa-solid fa-wallet"></i>
+          <div class="search-field-content">
+            <label for="heroBudgetSelect">Budget Range</label>
+            <select id="heroBudgetSelect">
+              <option value="any">All Budgets</option>
+              <option value="budget">Under ₹10,000</option>
+              <option value="mid">₹10,000 - ₹35,000</option>
+              <option value="luxury">₹35,000+</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary search-action-btn" style="padding: 0.95rem 1.8rem;">
+          <i class="fa-solid fa-magnifying-glass"></i> Search Now
+        </button>
+      </form>
+
+      <!-- Trust Metrics -->
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-num">50,000+</span>
+          <span class="stat-label">Happy Travelers</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">150+</span>
+          <span class="stat-label">Verified Destinations</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">4.9 ★</span>
+          <span class="stat-label">Customer Rating</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">24 / 7</span>
+          <span class="stat-label">Gemini AI Assistance</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <!-- 3. Popular Destinations Section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-badge"><i class="fa-solid fa-globe"></i> Top Picks</span>
+          <h2 class="section-title">Popular <span class="highlight">Destinations</span></h2>
+          <p class="section-subtitle">
+            From the snow-covered slopes of Manali to the tranquil waters of Bali, explore our most coveted travel paradises.
+          </p>
+        </div>
+
+        <div class="destination-grid" id="popularDestinationsGrid">
+          <!-- Dynamically populated by js/destinations.js -->
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+          <a href="destinations.html" class="btn btn-secondary btn-lg">
+            Explore All 10 Destinations <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Featured Tour Packages -->
+    <section class="section" style="background: var(--bg-surface);">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-badge"><i class="fa-solid fa-plane"></i> Curated Itineraries</span>
+          <h2 class="section-title">Featured <span class="highlight">Tour Packages</span></h2>
+          <p class="section-subtitle">
+            All-inclusive trips with premier stays, dedicated transfers, and guided sightseeing tailored for every style of explorer.
+          </p>
+        </div>
+
+        <div class="packages-grid" id="featuredPackagesGrid">
+          <!-- Dynamically populated by js/booking.js -->
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+          <a href="packages.html" class="btn btn-primary btn-lg">
+            Browse All Tour Packages <i class="fa-solid fa-suitcase"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. AI Trip Planner Promo Callout -->
+    <section class="section">
+      <div class="container">
+        <div style="background: var(--bg-gradient); border-radius: var(--radius-lg); padding: 4rem 3rem; color: #ffffff; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: center; box-shadow: var(--shadow-xl);">
+          <div>
+            <span style="background: rgba(255,255,255,0.25); padding: 0.35rem 0.95rem; border-radius: var(--radius-full); font-size: 0.85rem; font-weight: 700; text-transform: uppercase;">
+              Powered by Google Gemini AI
+            </span>
+            <h2 style="font-size: 2.5rem; font-weight: 900; margin: 1rem 0 0.8rem 0; line-height: 1.2;">
+              Generate Your Complete Day-by-Day Vacation in Seconds
+            </h2>
+            <p style="font-size: 1.1rem; opacity: 0.95; line-height: 1.6; margin-bottom: 2rem;">
+              Input your dream destination, budget, group size, and travel style. WanderWise AI crafts tailored morning, afternoon, and evening schedules with estimated costs, food spots, and insider tips!
+            </p>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <a href="planner.html" class="btn btn-secondary btn-lg" style="color: var(--primary); font-weight: 700;">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> Try AI Planner Now
+              </a>
+              <button class="btn btn-outline btn-lg" onclick="window.wanderBotInstance?.toggleWindow()" style="border-color: #fff; color: #fff;">
+                <i class="fa-solid fa-robot"></i> Ask WanderBot AI
+              </button>
+            </div>
+          </div>
+          <div style="text-align: center;">
+            <div style="background: rgba(255,255,255,0.15); backdrop-filter: blur(12px); border-radius: var(--radius-md); padding: 2rem; border: 1px solid rgba(255,255,255,0.3); text-align: left;">
+              <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
+                <div style="width: 44px; height: 44px; border-radius: 50%; background: #ffffff; color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">
+                  <i class="fa-solid fa-robot"></i>
+                </div>
+                <div>
+                  <h4 style="font-size: 1.1rem; font-weight: 800;">WanderBot AI Prompt</h4>
+                  <p style="font-size: 0.8rem; opacity: 0.85;">Instant travel concierge answer</p>
+                </div>
+              </div>
+              <div style="background: rgba(0,0,0,0.15); border-radius: var(--radius-sm); padding: 0.85rem; font-size: 0.9rem; margin-bottom: 1rem;">
+                <em>"Suggest a 4-day budget trip to Jaipur under ₹10,000 for solo exploration."</em>
+              </div>
+              <p style="font-size: 0.85rem; opacity: 0.9; line-height: 1.5;">
+                ✓ Day-wise fort tours & composite ticket savings<br>
+                ✓ Pyaaz Kachori & Lassi culinary hot-spots<br>
+                ✓ Accurate transportation & boutique haveli stays
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Why Choose Us Section -->
+    <section class="section" style="background: var(--bg-surface);">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-badge"><i class="fa-solid fa-award"></i> The WanderWise Advantage</span>
+          <h2 class="section-title">Why Travel <span class="highlight">With Us</span></h2>
+          <p class="section-subtitle">
+            We merge cutting-edge artificial intelligence with trusted hospitality to deliver smooth, unforgettable getaways.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <i class="fa-solid fa-brain"></i>
+            </div>
+            <h3 class="feature-title">AI-Powered Itineraries</h3>
+            <p class="feature-desc">
+              Harness Google Gemini AI to assemble hyper-personalized day-by-day schedules calibrated to your budget, pace, and interests.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h3 class="feature-title">Verified Safe Stays</h3>
+            <p class="feature-desc">
+              Every hotel, boutique resort, and private villa in our packages undergoes strict safety and hygiene audits before onboarding.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <i class="fa-solid fa-tags"></i>
+            </div>
+            <h3 class="feature-title">Best Price Guarantee</h3>
+            <p class="feature-desc">
+              Transparent per-person pricing with zero hidden surcharges, complimentary breakfast options, and free itinerary adjustments.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <i class="fa-solid fa-headset"></i>
+            </div>
+            <h3 class="feature-title">24/7 WanderBot Support</h3>
+            <p class="feature-desc">
+              Never feel stranded. WanderBot answers questions on local transportation, weather, packing, and attraction timings in real-time.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Customer Testimonials -->
+    <section class="section">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-badge"><i class="fa-solid fa-comments"></i> Real Stories</span>
+          <h2 class="section-title">Loved by <span class="highlight">Travelers Worldwide</span></h2>
+          <p class="section-subtitle">
+            Here is what our globetrotters have to say about their WanderWise adventures.
+          </p>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <i class="fa-solid fa-quote-right quote-icon"></i>
+            <div class="test-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="test-text">
+              "WanderBot suggested a budget trip to Jaipur under ₹10,000 and planned out our 3-day fort visits perfectly. The local food tips at Rawat Kachori were legendary!"
+            </p>
+            <div class="test-user">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Rohan Verma" class="test-avatar">
+              <div>
+                <h4 class="test-name">Rohan & Ananya Verma</h4>
+                <p class="test-location">Delhi, India • Jaipur Tour</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <i class="fa-solid fa-quote-right quote-icon"></i>
+            <div class="test-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="test-text">
+              "The Kerala Honeymoon package was breathtaking. Our private houseboat chef cooked authentic karimeen pollichathu while cruising the Alleppey backwaters. Truly 5 stars!"
+            </p>
+            <div class="test-user">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Marcus Chen" class="test-avatar">
+              <div>
+                <h4 class="test-name">Marcus & Emily Chen</h4>
+                <p class="test-location">Singapore • Kerala Escape</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <i class="fa-solid fa-quote-right quote-icon"></i>
+            <div class="test-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="test-text">
+              "The AI Trip Planner generated our entire 6-day Bali schedule in under 10 seconds. From Nusa Penida fast boats to Ubud rice field swings, everything ran like clockwork!"
+            </p>
+            <div class="test-user">
+              <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=100&q=80" alt="Priya Nair" class="test-avatar">
+              <div>
+                <h4 class="test-name">Priya Nair</h4>
+                <p class="test-location">Mumbai, India • Bali Bliss Tour</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Newsletter Subscription Section -->
+    <section class="container">
+      <div class="newsletter-section">
+        <h2 class="newsletter-title">Unlock Exclusive Secret Travel Deals</h2>
+        <p class="newsletter-sub">
+          Subscribe to the WanderWise weekly digest for limited-time flash sales, seasonal package discounts, and AI travel tips.
+        </p>
+        <form class="newsletter-form">
+          <input type="email" class="newsletter-input" placeholder="Enter your email address..." required>
+          <button type="submit" class="btn btn-primary" style="background: var(--text-primary); color: #fff;">
+            Subscribe Now
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- 9. Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <i class="fa-solid fa-compass-drafting" style="color: var(--accent);"></i>
+            <span>Wander<strong style="color: var(--accent);">Wise</strong></span>
+          </a>
+          <p>
+            Explore More. Travel Better. WanderWise is an AI-enhanced travel platform combining curated tours, dynamic itineraries, and seamless booking.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-link" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="social-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="packages.html">Tour Packages</a></li>
+            <li><a href="planner.html">AI Trip Planner</a></li>
+            <li><a href="about.html">About WanderWise</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Top Destinations</h4>
+          <ul class="footer-links">
+            <li><a href="destinations.html?q=Manali">Manali, Himachal</a></li>
+            <li><a href="destinations.html?q=Goa">Goa Beaches</a></li>
+            <li><a href="destinations.html?q=Jaipur">Jaipur, Rajasthan</a></li>
+            <li><a href="destinations.html?q=Kashmir">Kashmir Valley</a></li>
+            <li><a href="destinations.html?q=Dubai">Dubai, UAE</a></li>
+            <li><a href="destinations.html?q=Bali">Bali, Indonesia</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Need Help?</h4>
+          <ul class="footer-links">
+            <li><a href="dashboard.html">My Dashboard</a></li>
+            <li><a href="dashboard.html#bookings">My Bookings</a></li>
+            <li><a href="dashboard.html#wishlist">My Wishlist</a></li>
+            <li><a href="contact.html#faq">FAQs & Support</a></li>
+            <li><a href="login.html">Login / Register</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 WanderWise Tour & Travel Technologies Inc. All rights reserved.
+        </div>
+        <div>
+          <span>Crafted with HTML5, CSS3, Vanilla JS & Google Gemini AI</span>
+        </div>
+      </div>
+      <div class="footer-disclaimer">
+        Disclaimer: This website uses local browser storage for demo authentication, wishlist, and booking simulations. No real financial transactions are executed.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back To Top Button -->
+  <button class="back-to-top" aria-label="Back to top" title="Scroll to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Core JavaScript Files -->
+  <script src="js/main.js"></script>
+  <script src="js/destinations.js"></script>
+  <script src="js/booking.js"></script>
+  <script src="js/chatbot.js"></script>
+</body>
+</html>

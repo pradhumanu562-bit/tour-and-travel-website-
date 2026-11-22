@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us – WanderWise | Explore More. Travel Better.</title>
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✈️</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/chatbot.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">
+        <i class="fa-solid fa-compass-drafting"></i>
+        <span>Wander<strong>Wise</strong></span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="destinations.html" class="nav-link">Destinations</a>
+        <a href="packages.html" class="nav-link">Packages</a>
+        <a href="planner.html" class="nav-link"><i class="fa-solid fa-wand-magic-sparkles" style="color: var(--accent);"></i> AI Trip Planner</a>
+        <a href="about.html" class="nav-link active">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Dark/Light Mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <a href="dashboard.html#wishlist" class="wishlist-nav-btn" aria-label="Wishlist" title="View Wishlist">
+          <i class="fa-solid fa-heart"></i>
+          <span class="wishlist-badge" style="display: none;">0</span>
+        </a>
+        <div class="nav-auth-slot">
+          <a href="login.html" class="btn btn-secondary btn-sm">Login</a>
+          <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+        </div>
+        <button class="mobile-menu-toggle" aria-label="Toggle Navigation Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section style="background: linear-gradient(rgba(12, 74, 110, 0.75), rgba(2, 132, 199, 0.8)), url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; padding: calc(var(--header-height) + 3.5rem) 1.5rem 4rem 1.5rem; color: #ffffff; text-align: center;">
+    <div class="container" style="max-width: 800px;">
+      <span class="section-badge" style="background: rgba(255,255,255,0.25); color: #fff; border-color: rgba(255,255,255,0.4);">
+        <i class="fa-solid fa-compass"></i> Our Purpose & Story
+      </span>
+      <h1 style="font-size: 3rem; font-weight: 900; margin-bottom: 1rem;">About WanderWise</h1>
+      <p style="font-size: 1.15rem; opacity: 0.95;">
+        Redefining modern tourism by combining deep human hospitality with conversational AI.
+      </p>
+    </div>
+  </section>
+
+  <main>
+    <!-- Our Story Section -->
+    <section class="section">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center;">
+          <div>
+            <span class="section-badge"><i class="fa-solid fa-book-open"></i> How It Started</span>
+            <h2 class="section-title">Born from a Passion for <span class="highlight">Seamless Exploration</span></h2>
+            <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.25rem;">
+              WanderWise was founded on a simple premise: planning a vacation should be as effortless and thrilling as the trip itself. In an era where travelers waste dozens of hours wading through conflicting forum reviews and opaque package pricing, we set out to build a smarter alternative.
+            </p>
+            <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 2rem;">
+              By uniting Google Gemini generative AI with carefully vetted local hospitality partners, WanderWise delivers instant day-by-day itineraries, transparent pricing, and 24/7 conversational assistance through WanderBot.
+            </p>
+            <div style="display: flex; gap: 2rem;">
+              <div>
+                <h3 style="font-size: 2rem; font-weight: 800; color: var(--primary);">50K+</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Travelers Guided</p>
+              </div>
+              <div>
+                <h3 style="font-size: 2rem; font-weight: 800; color: var(--accent);">150+</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Destinations</p>
+              </div>
+              <div>
+                <h3 style="font-size: 2rem; font-weight: 800; color: var(--success);">99.4%</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Satisfaction Rate</p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Team collaborating on travel experiences" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-xl); border: 1px solid var(--border-color);">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="section" style="background: var(--bg-surface);">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+          <div style="background: var(--bg-subtle); border-radius: var(--radius-lg); padding: 2.5rem; border-left: 4px solid var(--primary);">
+            <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--bg-gradient); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.25rem;">
+              <i class="fa-solid fa-bullseye"></i>
+            </div>
+            <h3 style="font-size: 1.5rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.75rem;">Our Mission</h3>
+            <p style="color: var(--text-secondary); line-height: 1.7;">
+              To empower every global citizen to travel smarter, experience richer cultural connections, and discover authentic local wonders without financial ambiguity or logistical stress.
+            </p>
+          </div>
+
+          <div style="background: var(--bg-subtle); border-radius: var(--radius-lg); padding: 2.5rem; border-left: 4px solid var(--accent);">
+            <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.25rem;">
+              <i class="fa-solid fa-eye"></i>
+            </div>
+            <h3 style="font-size: 1.5rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.75rem;">Our Vision</h3>
+            <p style="color: var(--text-secondary); line-height: 1.7;">
+              To be the world’s most trusted AI-first travel platform, pioneering intelligent journeys that promote sustainable tourism, respect local cultures, and foster lifelong global memories.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us Pillars -->
+    <section class="section">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-badge"><i class="fa-solid fa-star"></i> Core Values</span>
+          <h2 class="section-title">The Principles Behind <span class="highlight">WanderWise</span></h2>
+          <p class="section-subtitle">
+            What guides our hand as we engineer every feature and curate every journey.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon-box"><i class="fa-solid fa-heart-circle-check"></i></div>
+            <h3 class="feature-title">Human Warmth</h3>
+            <p class="feature-desc">AI powers our speed and intelligence, but genuine human hospitality is the heartbeat of every tour package.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon-box"><i class="fa-solid fa-scale-balanced"></i></div>
+            <h3 class="feature-title">Ethical Pricing</h3>
+            <p class="feature-desc">No bait-and-switch deals. No hidden surge taxes at checkout. What you see is what you pay.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon-box"><i class="fa-solid fa-leaf"></i></div>
+            <h3 class="feature-title">Eco-Minded Travel</h3>
+            <p class="feature-desc">We promote local artisans, indigenous homestays, and leave-no-trace nature practices in all destinations.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon-box"><i class="fa-solid fa-infinity"></i></div>
+            <h3 class="feature-title">Continuous Innovation</h3>
+            <p class="feature-desc">Always evolving with the newest AI models to deliver sharper recommendations and real-time transit insights.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <i class="fa-solid fa-compass-drafting" style="color: var(--accent);"></i>
+            <span>Wander<strong style="color: var(--accent);">Wise</strong></span>
+          </a>
+          <p>Explore More. Travel Better. Premium tour packages and AI trip planning.</p>
+        </div>
+        <div>
+          <h4 class="footer-title">Explore</h4>
+          <ul class="footer-links">
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="planner.html">AI Planner</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Demo Disclaimers</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 WanderWise Tour & Travel Technologies Inc.</div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script src="js/main.js"></script>
+  <script src="js/chatbot.js"></script>
+</body>
+</html>

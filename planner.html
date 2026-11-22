@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Trip Planner – WanderWise | Generate Custom Itineraries with Gemini AI</title>
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✈️</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/chatbot.css">
+
+  <style>
+    /* Planner specific styling */
+    .travel-type-chip {
+      padding: 0.85rem 1.25rem;
+      border-radius: var(--radius-md);
+      background: var(--bg-subtle);
+      border: 2px solid transparent;
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: all var(--transition-fast);
+    }
+    .travel-type-chip i {
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+    .travel-type-chip:hover {
+      border-color: var(--primary-light);
+      background: var(--bg-surface);
+      transform: translateY(-3px);
+    }
+    .travel-type-chip.active {
+      border-color: var(--primary);
+      background: var(--bg-surface);
+      box-shadow: 0 4px 15px var(--primary-glow);
+    }
+    .travel-type-chip.active i {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">
+        <i class="fa-solid fa-compass-drafting"></i>
+        <span>Wander<strong>Wise</strong></span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="destinations.html" class="nav-link">Destinations</a>
+        <a href="packages.html" class="nav-link">Packages</a>
+        <a href="planner.html" class="nav-link active"><i class="fa-solid fa-wand-magic-sparkles" style="color: var(--accent);"></i> AI Trip Planner</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Dark/Light Mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <a href="dashboard.html#wishlist" class="wishlist-nav-btn" aria-label="Wishlist" title="View Wishlist">
+          <i class="fa-solid fa-heart"></i>
+          <span class="wishlist-badge" style="display: none;">0</span>
+        </a>
+        <div class="nav-auth-slot">
+          <a href="login.html" class="btn btn-secondary btn-sm">Login</a>
+          <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+        </div>
+        <button class="mobile-menu-toggle" aria-label="Toggle Navigation Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section style="background: linear-gradient(rgba(12, 74, 110, 0.75), rgba(2, 132, 199, 0.8)), url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; padding: calc(var(--header-height) + 3.5rem) 1.5rem 4rem 1.5rem; color: #ffffff; text-align: center;">
+    <div class="container" style="max-width: 800px;">
+      <span class="section-badge" style="background: rgba(255,255,255,0.25); color: #fff; border-color: rgba(255,255,255,0.4);">
+        <i class="fa-solid fa-wand-magic-sparkles"></i> Powered by Google Gemini AI
+      </span>
+      <h1 style="font-size: 3rem; font-weight: 900; margin-bottom: 1rem;">AI Trip Planner</h1>
+      <p style="font-size: 1.15rem; opacity: 0.95;">
+        Generate day-by-day vacation itineraries, secret sights, budget breakdowns, and local culinary gems in seconds.
+      </p>
+    </div>
+  </section>
+
+  <main class="section">
+    <div class="container" style="max-width: 960px;">
+      
+      <!-- Planner Input Card -->
+      <div style="background: var(--bg-surface); border-radius: var(--radius-lg); padding: 2.5rem; box-shadow: var(--shadow-lg); border: 1px solid var(--border-color); margin-bottom: 3.5rem;">
+        
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.8rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.25rem;">
+          <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--bg-subtle); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">
+            <i class="fa-solid fa-sliders"></i>
+          </div>
+          <div>
+            <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--text-primary);">Configure Your Journey Parameters</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">Tell our AI what kind of adventure you are craving.</p>
+          </div>
+        </div>
+
+        <form id="aiPlannerForm">
+          <!-- Starting City & Destination -->
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="plannerStartCity"><i class="fa-solid fa-plane-departure" style="color: var(--primary);"></i> Starting City</label>
+              <input type="text" class="form-input" id="plannerStartCity" placeholder="e.g. New Delhi, Mumbai, Bangalore..." value="New Delhi" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="plannerDestination"><i class="fa-solid fa-location-dot" style="color: var(--accent);"></i> Dream Destination</label>
+              <input type="text" class="form-input" id="plannerDestination" placeholder="e.g. Manali, Goa, Kashmir, Dubai, Bali..." value="Manali" required>
+            </div>
+          </div>
+
+          <!-- Duration & Travellers -->
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="plannerDuration"><i class="fa-regular fa-clock" style="color: var(--primary);"></i> Travel Duration (Days)</label>
+              <select class="form-select" id="plannerDuration">
+                <option value="2">2 Days (Weekend Getaway)</option>
+                <option value="3">3 Days (Long Weekend)</option>
+                <option value="4" selected>4 Days (Standard Escape)</option>
+                <option value="5">5 Days (Complete Highlights)</option>
+                <option value="7">7 Days (Full Vacation)</option>
+                <option value="10">10 Days (Comprehensive Tour)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="plannerTravellers"><i class="fa-solid fa-users" style="color: var(--accent);"></i> Number of Travellers</label>
+              <select class="form-select" id="plannerTravellers">
+                <option value="1">1 Person (Solo Adventure)</option>
+                <option value="2" selected>2 Persons (Couple / Friends)</option>
+                <option value="3">3 Persons (Small Group)</option>
+                <option value="4">4 Persons (Family Group)</option>
+                <option value="6">6+ Persons (Large Group)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Travel Budget Slider -->
+          <div class="form-group" style="margin: 1.5rem 0;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <label class="form-label" style="margin-bottom: 0;"><i class="fa-solid fa-wallet" style="color: var(--primary);"></i> Travel Budget (Total Estimated)</label>
+              <span id="budgetDisplay" style="font-size: 1.25rem; font-weight: 800; color: var(--primary);">₹35,000</span>
+            </div>
+            <input type="range" id="budgetRange" min="5000" max="250000" step="5000" value="35000" style="width: 100%; accent-color: var(--primary); cursor: pointer;">
+            <div style="display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--text-muted); margin-top: 0.3rem;">
+              <span>₹5,000 (Budget)</span>
+              <span>₹50,000 (Moderate)</span>
+              <span>₹1,25,000 (Comfort)</span>
+              <span>₹2,50,000+ (Luxury)</span>
+            </div>
+          </div>
+
+          <!-- Travel Type Selection (6 requested types: Adventure, Nature, Relaxation, Family, Solo, Shopping) -->
+          <div class="form-group" style="margin-bottom: 2rem;">
+            <label class="form-label"><i class="fa-solid fa-compass" style="color: var(--accent);"></i> Select Travel Style</label>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 0.85rem; margin-top: 0.5rem;">
+              <div class="travel-type-chip active" data-type="Adventure">
+                <i class="fa-solid fa-person-hiking"></i>
+                <span>Adventure</span>
+              </div>
+              <div class="travel-type-chip" data-type="Nature">
+                <i class="fa-solid fa-tree"></i>
+                <span>Nature</span>
+              </div>
+              <div class="travel-type-chip" data-type="Relaxation">
+                <i class="fa-solid fa-spa"></i>
+                <span>Relaxation</span>
+              </div>
+              <div class="travel-type-chip" data-type="Family">
+                <i class="fa-solid fa-people-roof"></i>
+                <span>Family</span>
+              </div>
+              <div class="travel-type-chip" data-type="Solo">
+                <i class="fa-solid fa-person-walking-luggage"></i>
+                <span>Solo</span>
+              </div>
+              <div class="travel-type-chip" data-type="Shopping">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span>Shopping</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Generate Button -->
+          <button type="submit" class="btn btn-primary btn-lg" id="generatePlanBtn" style="width: 100%; padding: 1.1rem; font-size: 1.15rem;">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Generate My Trip
+          </button>
+        </form>
+      </div>
+
+      <!-- Generated Results Display Area -->
+      <div id="plannerResultsArea" style="display: none;">
+        <!-- Populated dynamically by js/planner.js -->
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <i class="fa-solid fa-compass-drafting" style="color: var(--accent);"></i>
+            <span>Wander<strong style="color: var(--accent);">Wise</strong></span>
+          </a>
+          <p>Explore More. Travel Better. Premium tour packages and AI trip planning.</p>
+        </div>
+        <div>
+          <h4 class="footer-title">Destinations</h4>
+          <ul class="footer-links">
+            <li><a href="destinations.html">Manali</a></li>
+            <li><a href="destinations.html">Goa</a></li>
+            <li><a href="destinations.html">Dubai</a></li>
+            <li><a href="destinations.html">Bali</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title">Packages</h4>
+          <ul class="footer-links">
+            <li><a href="packages.html">Adventure Tours</a></li>
+            <li><a href="packages.html">Family Packages</a></li>
+            <li><a href="packages.html">Honeymoon Specials</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title">Account</h4>
+          <ul class="footer-links">
+            <li><a href="dashboard.html">My Dashboard</a></li>
+            <li><a href="login.html">Sign In</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 WanderWise Inc. Powered by Gemini AI.</div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script src="js/main.js"></script>
+  <script src="js/planner.js"></script>
+  <script src="js/chatbot.js"></script>
+</body>
+</html>
